@@ -1,8 +1,10 @@
+% This script propagates 
+
 %% Parameters
 mu = 3.9860044188e14;
 mass = 24;
-N_dt = 12;
-N_inc = 4;
+N_dt = 5;
+N_inc = 5;
 
 N_sims = N_dt*N_inc;
 
@@ -58,6 +60,8 @@ for j = 1:N_sims
 
     counter = 10;
 
+    u_eci = .02*ones(3,1);
+
     for i = 1:N_steps
 
         perc = i*100/N_steps;
@@ -67,7 +71,7 @@ for j = 1:N_sims
         end
 
         % Update Dynamics
-        x0_eci = prop.prop(dt, states_all(:,i,j), zeros(3,1));
+        x0_eci = prop.prop(dt, states_all(:,i,j), u_eci);
         states_all(:,i+1,j) = x0_eci;
 
         t_all(:,i+1,j) = t_all(:,i,j) + dt;
@@ -75,7 +79,7 @@ for j = 1:N_sims
     end    
 
     if mod_dt > 0
-        x0_eci = prop.prop(mod_dt, states_all(:,i+1,j), zeros(3,1));
+        x0_eci = prop.prop(mod_dt, states_all(:,i+1,j), u_eci);
         states_all(:,i+2,j) = x0_eci;
         t_all(:,i+2,j) = t_all(:,i+1,j) + mod_dt;
     end
