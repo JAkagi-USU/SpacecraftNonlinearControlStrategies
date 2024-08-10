@@ -1,5 +1,7 @@
 %% Parameters
 
+addpath utils
+
 mu = 3.9860044188e14;
 
 x0_bounds = [350; 350; 350; 1; 1; 1];

@@ -1,3 +1,5 @@
+addpath utils
+
 M2KM = 1/1000;
 S2HR = 1/3600;
 

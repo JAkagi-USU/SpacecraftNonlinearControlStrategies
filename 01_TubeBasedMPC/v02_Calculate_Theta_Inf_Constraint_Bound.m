@@ -1,5 +1,7 @@
 %% Initialize Dynamics
 
+addpath utils
+
 n = .0011;
 dt = 10;
 

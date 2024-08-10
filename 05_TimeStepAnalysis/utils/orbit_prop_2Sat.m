@@ -74,7 +74,7 @@ classdef orbit_prop_2Sat < handle
     
     methods
        
-        function obj = orbit_prop_2Sat(guide_dt)
+        function obj = orbit_prop_2Sat()
             
             params.mu = 3.9860044188e14;
             params.CD = 2.2;
@@ -84,7 +84,6 @@ classdef orbit_prop_2Sat < handle
             params.Isp = 160;
             params.g0 = 9.81;
             params.R_E = 6.3781363000e6;
-            params.dt = guide_dt;
             
             
             obj.params = params;
